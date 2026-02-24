@@ -80,7 +80,7 @@ git checkout fabric_test
 git push origin fabric_test
 
 # 3. Create the pull request
-gh pr create --base main --head fabric_test --title "Merge fabric_test changes to main" --body "Description of changes"
+gh pr create --base main --head fabric_test --title "Merge fabric_test to main" --body "Get Fabric Changes"
 
 # 4. Open the PR in browser for review
 gh pr view --web
@@ -122,10 +122,12 @@ gh pr create --title "Hotfix" --body "Emergency fix" && gh pr merge --auto --squ
 gh pr merge 123 --merge
 
 # 2. Squash and merge (squashes all commits into one)
-gh pr merge 123 --squash --delete-branch
+gh pr merge 123 --squash
 
 # 3. Rebase and merge (replays commits without merge commit)
-gh pr merge 123 --rebase --delete-branch
+gh pr merge 123 --rebase
+
+# Note: --delete-branch flag omitted to preserve fabric_test branch
 
 # Merge with custom commit message
 gh pr merge 123 --squash --subject "feat: merge fabric_test functionality" --body "Detailed description of the merge"
@@ -149,8 +151,8 @@ git push origin fabric_test --force-with-lease
 gh pr create \
   --base main \
   --head fabric_test \
-  --title "Merge fabric_test: UDF solutions implementation" \
-  --body "## Summary
+  --title "Merge fabric_test" --body "Get Fabric Changes"
+
 This PR merges the fabric_test branch containing:
 - UDF implementation for Fabric workspace
 - Documentation updates
@@ -166,8 +168,8 @@ This PR merges the fabric_test branch containing:
 gh pr view
 gh pr checks
 
-# After approval, merge with squash
-gh pr merge --squash --delete-branch
+# After approval, merge with squash (keeping fabric_test branch)
+gh pr merge --squash
 
 # Verify the merge
 git checkout main
@@ -194,15 +196,18 @@ gh pr view --web 123  # Resolve conflicts in browser
 
 ### Post-Merge Cleanup
 ```bash
-# After successful merge, clean up branches
+# After successful merge, update main branch
 git checkout main
 git pull origin main
-git branch -d fabric_test  # Delete local branch
-git push origin --delete fabric_test  # Delete remote branch
 
-# Optional: Create a new branch for next feature
-git checkout -b fabric_test_v2
-git push -u origin fabric_test_v2
+# Keep fabric_test branch (synced to fabric workspace)
+# Update fabric_test with latest main changes
+git checkout fabric_test
+git merge main  # or git rebase main
+git push origin fabric_test
+
+# Note: fabric_test branch is preserved as it's synced to fabric workspace
+# Only delete feature branches that are no longer needed
 ```
 
 ## Issues
