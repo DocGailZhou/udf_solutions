@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataAgent",
+    "displayName": "Data Agent for UDF"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "77a766b9-fab8-a637-4022-52ca5a5221d9"
+  }
+}
