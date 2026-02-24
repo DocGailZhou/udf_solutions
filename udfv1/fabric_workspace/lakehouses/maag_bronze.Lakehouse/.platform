@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "maag_bronze"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c0b70c1d-a7af-ad2e-4865-b406d7ceb47a"
+  }
+}
