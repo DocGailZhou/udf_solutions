@@ -1,19 +1,42 @@
-I am going to talk with you on ideas and design first. No code generation until we are ready. I put what I am thinking in a long prompt. 
+# Supply Chain Data Gen Initial Prompt 
 
-# What has been done: 
+Now we have the supply chain data models defined (we can still modify if needed later). 
 
-Now we got sales and finance data generation refactored and consolidated as a self-contained data generator. It can generate sales data for three product lines (camping, kitchen, and ski). The generated data in C:\Repos\Explore\udf_solutions\prototype\src\data_generator\output.
-
-The main_generate_sales.py is the main program to complete above tasks. 
-
-# What to do next - First the Ideas and Goals 
+Now we need to define the process to generate data. 
 
 ### Data input and output 
 
-Now I need to use the data  generated in sales data generated and saved in C:\Repos\Explore\udf_solutions\prototype\src\data_generator\output. We will not use finance data for next step. For example, we use C:\Repos\Explore\udf_solutions\prototype\src\data_generator\output\camping\sales, not C:\Repos\Explore\udf_solutions\prototype\src\data_generator\output\camping\finance. 
+Now I need to use the data  generated in sales data generated and saved in: 
 
-Based on the sales data, we should be able to create demand forecast data. From demand forecast data we should be able to generate optional inventory data (what it should be), we can also have an inventory history table to track on daily basis. 
+- C:\Repos\Explore\udf_solutions\prototype\src\data_generator\output\camping\sales
 
-We need to create a supplier table, with 5 suppliers with 3 active, 2 as backpu.
+- C:\Repos\Explore\udf_solutions\prototype\src\data_generator\output\kitchen\sales
 
-**Data Modeling** 
+- C:\Repos\Explore\udf_solutions\prototype\src\data_generator\output\ski\sales
+
+  
+
+We will not use any finance data for next steps.
+
+If we need to use reference data, we can use customer and product domain data in
+
+C:\Repos\Explore\udf_solutions\prototype\src\data_generator\input
+
+#### What do we need to generate 
+
+we need to generate data for 
+
+- model_inventory.ipynb
+- model_suppliers.ipynb
+
+For suppliers, I can give some some sample names 
+
+1. Contoso Camping Equipment, active
+2. Contoso Kitchen, active
+3. Contoso Ski Equipment, active
+4. Worldwide Importers, backup for Camping, Kitchen, and Ski
+5. Fabrikam, back up for Ski only
+
+
+
+Question for you, can you create an design doc named supplychain_data_gen_design.md? You can include or modify above info I put in. 
