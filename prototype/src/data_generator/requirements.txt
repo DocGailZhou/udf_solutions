@@ -1,0 +1,13 @@
+# Sample Data Generation Requirements
+# ===================================
+# Core dependencies for generating realistic sales & finance data
+
+# Essential for data generation and processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Required for revenue trend graphing (--graph flag)
+matplotlib>=3.5.0
+
+# Note: All other imports are Python built-ins:
+# - random, datetime, uuid, os, argparse, pathlib, sys
