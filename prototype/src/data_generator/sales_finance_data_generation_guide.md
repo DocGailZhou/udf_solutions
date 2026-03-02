@@ -20,31 +20,31 @@ Each domain produces **6 CSV files**: Orders, OrderLines, OrderPayments (Sales) 
 pip install -r requirements.txt
 
 # Default: Generate 6 years of data up to execution date (recommended)
-python main_sample_data.py
+python main_generate_sales.py
 
 # 
-python main_sample_data.py  --enable-growth 
+python main_generate_sales.py  --enable-growth 
 
 # Generate data for specific date range
-python main_sample_data.py -s 2025-01-01 -e 2026-01-19
+python main_generate_sales.py -s 2025-01-01 -e 2026-01-19
 
 # Generate all data for a single year
-python main_sample_data.py -s 2025-01-01 -e 2025-12-31
+python main_generate_sales.py -s 2025-01-01 -e 2025-12-31
 
 # Generate only camping data for specific period
-python main_sample_data.py -s 2024-06-01 -e 2024-12-31 --camping-only
+python main_generate_sales.py -s 2024-06-01 -e 2024-12-31 --camping-only
 
 # Generate data with business growth simulation
-python main_sample_data.py --enable-growth
+python main_generate_sales.py --enable-growth
 
 # Generate growth data for specific period
-python main_sample_data.py -s 2025-01-01 -e 2025-12-31 --enable-growth
+python main_generate_sales.py -s 2025-01-01 -e 2025-12-31 --enable-growth
 
 # Generate revenue trend graph
-python main_sample_data.py --graph
+python main_generate_sales.py --graph
 
 # Combine growth patterns with graphing
-python main_sample_data.py --enable-growth --graph
+python main_generate_sales.py --enable-growth --graph
 ```
 
 **Default**: When no dates are specified, automatically generates 6 years of data (from 6 years ago to today's execution date).  
@@ -52,7 +52,7 @@ python main_sample_data.py --enable-growth --graph
 
 ## 📋 Command Options
 
-### **Main Orchestrator (`main_sample_data.py`)**
+### **Main Orchestrator (`main_generate_sales.py`)**
 | Option | Description | Example |
 |--------|------------|---------|
 | `-s`, `--start-date` | Start date (YYYY-MM-DD) | `-s 2025-01-01` |
@@ -193,50 +193,50 @@ The system uses a **two-level hierarchy** matching the database schema:
 ### **Production-Scale Testing**
 ```bash
 # Recommended: Comprehensive 6-year dataset (auto-calculates dates to today)
-python main_sample_data.py
+python main_generate_sales.py
 
 # Full year for analytics (example)
-python main_sample_data.py -s 2025-01-01 -e 2025-12-31
+python main_generate_sales.py -s 2025-01-01 -e 2025-12-31
 ```
 
 ### **Domain-Specific Testing**
 ```bash
 # Test camping seasonality (spring season)
-python main_sample_data.py -s 2025-03-01 -e 2025-05-31 --camping-only
+python main_generate_sales.py -s 2025-03-01 -e 2025-05-31 --camping-only
 
 # Kitchen holiday patterns  
-python main_sample_data.py -s 2024-11-01 -e 2024-12-31 --kitchen-only
+python main_generate_sales.py -s 2024-11-01 -e 2024-12-31 --kitchen-only
 
 # Ski peak season
-python main_sample_data.py -s 2024-12-01 -e 2025-02-28 --ski-only
+python main_generate_sales.py -s 2024-12-01 -e 2025-02-28 --ski-only
 ```
 
 ### **Business Growth Testing**
 ```bash
 # Test complete growth cycle with analytics
-python main_sample_data.py -s 2025-01-01 -e 2025-12-31 --enable-growth
+python main_generate_sales.py -s 2025-01-01 -e 2025-12-31 --enable-growth
 
 # Growth patterns for camping only
-python main_sample_data.py -s 2025-01-01 -e 2025-12-31 --enable-growth --camping-only
+python main_generate_sales.py -s 2025-01-01 -e 2025-12-31 --enable-growth --camping-only
 
 # Test market events (Black Friday impact)
-python main_sample_data.py -s 2025-11-20 -e 2025-12-05 --enable-growth
+python main_generate_sales.py -s 2025-11-20 -e 2025-12-05 --enable-growth
 
 # Compare growth vs standard patterns
-python main_sample_data.py -s 2025-01-01 -e 2025-06-30  # Standard
-python main_sample_data.py -s 2025-01-01 -e 2025-06-30 --enable-growth  # Growth
+python main_generate_sales.py -s 2025-01-01 -e 2025-06-30  # Standard
+python main_generate_sales.py -s 2025-01-01 -e 2025-06-30 --enable-growth  # Growth
 ```
 
 ### **Revenue Trend Graphing**
 ```bash
 # Generate and view revenue trends for all domains
-python main_sample_data.py --graph
+python main_generate_sales.py --graph
 
 # Graph specific domain with growth patterns
-python main_sample_data.py --enable-growth --graph --camping-only
+python main_generate_sales.py --enable-growth --graph --camping-only
 
 # Generate comprehensive growth analysis with visualization
-python main_sample_data.py -s 2025-01-01 -e 2025-12-31 --enable-growth --graph
+python main_generate_sales.py -s 2025-01-01 -e 2025-12-31 --enable-growth --graph
 ```
 
 ## 📊 Understanding the Output

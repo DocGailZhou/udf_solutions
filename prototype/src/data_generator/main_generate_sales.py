@@ -11,10 +11,10 @@ Generates realistic sales and finance data for three product categories:
 Each generates: Orders, OrderLines, OrderPayments, Invoices, Payments, Accounts
 
 Usage:
-  python main_sample_data.py                                    # Default: 6 years of data, all domains
-  python main_sample_data.py -s 2025-01-01 -e 2025-12-31      # Custom date range, all domains
-  python main_sample_data.py --start-date 2024-01-01 --camping-only  # Camping domain only
-  python main_sample_data.py --help                            # Show all options
+  python main_generate_sales.py                                    # Default: 6 years of data, all domains
+  python main_generate_sales.py -s 2025-01-01 -e 2025-12-31      # Custom date range, all domains
+  python main_generate_sales.py --start-date 2024-01-01 --camping-only  # Camping domain only
+  python main_generate_sales.py --help                            # Show all options
 
 Author: GitHub Copilot
 Date: January 14, 2026
@@ -63,13 +63,13 @@ def parse_arguments():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Quick Examples (using short options):
-  python main_sample_data.py                           # All data, full date range
-  python main_sample_data.py -s 2024-01-01             # All data from 2024
-  python main_sample_data.py -s 2025-01-01 -e 2025-12-31  # All data for 2025
-  python main_sample_data.py -s 2024-06-01 -e 2024-06-30 --camping-only
-  python main_sample_data.py --enable-growth            # Enable business growth patterns
-  python main_sample_data.py --graph                    # Generate revenue trend graph
-  python main_sample_data.py --enable-growth --graph    # Growth patterns with visualization
+  python main_generate_sales.py                           # All data, full date range
+  python main_generate_sales.py -s 2024-01-01             # All data from 2024
+  python main_generate_sales.py -s 2025-01-01 -e 2025-12-31  # All data for 2025
+  python main_generate_sales.py -s 2024-06-01 -e 2024-06-30 --camping-only
+  python main_generate_sales.py --enable-growth            # Enable business growth patterns
+  python main_generate_sales.py --graph                    # Generate revenue trend graph
+  python main_generate_sales.py --enable-growth --graph    # Growth patterns with visualization
 
 Generates data for three channels:
   🏕️  Camping   → sample_camping/     (Microsoft Fabric)
