@@ -12,8 +12,8 @@ Usage:
   python generate_ski_orders.py -s 2025-01-01 -e 2025-12-31
 
 Outputs 6 CSV files:
-Sales: Order, OrderLine, OrderPayment → sample_ski/sales/
-Finance: Invoice, Payment, Account → sample_ski/finance/
+Sales: Order, OrderLine, OrderPayment → ski/sales/
+Finance: Invoice, Payment, Account → ski/finance/
 
 Author: GitHub Copilot  
 Date: January 14, 2026
@@ -31,8 +31,8 @@ from pathlib import Path
 # Configuration
 BASE_DIR = Path(__file__).parent.absolute()
 INPUT_DIR = BASE_DIR / "input"
-OUTPUT_DIR = BASE_DIR / "output" / "sample_ski" / "sales"
-FINANCE_OUTPUT_DIR = BASE_DIR / "output" / "sample_ski" / "finance"
+OUTPUT_DIR = BASE_DIR / "output" / "ski" / "sales"
+FINANCE_OUTPUT_DIR = BASE_DIR / "output" / "ski" / "finance"
 
 # Input file paths
 CUSTOMER_FILE = INPUT_DIR / "Customer_Samples.csv"

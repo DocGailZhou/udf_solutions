@@ -14,8 +14,8 @@ Usage:
   python generate_camping_orders.py --enable-growth  # Enable growth patterns
 
 Outputs 6 CSV files:
-Sales: Order, OrderLine, OrderPayment → sample_camping/sales/
-Finance: Invoice, Payment, Account → sample_camping/finance/
+Sales: Order, OrderLine, OrderPayment → camping/sales/
+Finance: Invoice, Payment, Account → camping/finance/
 
 Author: GitHub Copilot  
 Date: January 14, 2026
@@ -36,8 +36,8 @@ from business_growth_logic import calculate_order_adjustments
 # Configuration
 BASE_DIR = Path(__file__).parent.absolute()
 INPUT_DIR = BASE_DIR / "input"
-SALES_OUTPUT_DIR = BASE_DIR / "output" / "sample_camping" / "sales"
-FINANCE_OUTPUT_DIR = BASE_DIR / "output" / "sample_camping" / "finance"
+SALES_OUTPUT_DIR = BASE_DIR / "output" / "camping" / "sales"
+FINANCE_OUTPUT_DIR = BASE_DIR / "output" / "camping" / "finance"
 
 # Input file paths
 CUSTOMER_FILE = INPUT_DIR / "Customer_Samples.csv"

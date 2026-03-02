@@ -1,6 +1,6 @@
-# Sample Data Generation Guide
+# Sales and Finance Data Generation Guide
 
-A comprehensive utility for generating realistic sales and finance data across three business domains with automated infrastructure data deployment.
+A comprehensive utility for generating realistic sales and finance data across three business domains with automated infrastructure data deployment. The main purpose is to generate sales data. Finance data is generated based on actual sales data. 
 
 ## 🎯 What It Does
 
@@ -82,23 +82,23 @@ python utils/consolidate_product_domain_input.py
 ### **Local Output (src/data_simulator/output/)**
 ```
 output/
-├── sample_camping/          # 🏕️ Camping Products
+├── camping/          # 🏕️ Camping Products
 │   ├── sales/              # Order_Samples_Camping.csv, OrderLine_Samples_Camping.csv, OrderPayment_Camping.csv
 │   └── finance/            # Invoice_Samples_Camping.csv, Payment_Samples_Camping.csv, Account_Samples_Camping.csv
-├── sample_kitchen/          # 🍳 Kitchen Products  
+├── kitchen/          # 🍳 Kitchen Products  
 │   ├── sales/              # Order_Samples_Kitchen.csv, OrderLine_Samples_Kitchen.csv, OrderPayment_Kitchen.csv
 │   └── finance/            # Invoice_Samples_Kitchen.csv, Payment_Samples_Kitchen.csv, Account_Samples_Kitchen.csv
-├── sample_ski/             # ⛷️ Ski Equipment
+├── ski/             # ⛷️ Ski Equipment
 │   ├── sales/              # Order_Samples_Ski.csv, OrderLine_Samples_Ski.csv, OrderPayment_Ski.csv
 │   └── finance/            # Invoice_Samples_Ski.csv, Payment_Samples_Ski.csv, Account_Samples_Ski.csv
-└── sample_data_summary.md   # 📊 Comprehensive data generation summary with statistics
+└── sample_sales_data_summary.md   # 📊 Comprehensive data generation summary with statistics
 ```
 
 ### **Infrastructure Data Copy (../../infra/data/)**
 **Automatically copied after generation:**
 - **Input data** → `infra/data/shared/` (all customer, product, and reference data)
 - **Output data** → `infra/data/sample_*/` (preserving folder structure)
-- **Summary report** → `infra/data/sample_data_summary.md` (comprehensive generation statistics)
+- **Summary report** → `infra/data/sample_sales_data_summary.md` (comprehensive generation statistics)
 
 ### **Input Files**
 ```
@@ -292,7 +292,7 @@ python utils/consolidate_product_domain_input.py
 - **Automatic file copying**: All CSV files copied to `../../infra/data/` after generation
 - **Input data**: Copied to `infra/data/shared/` (customers, products, reference data)
 - **Output data**: Copied to `infra/data/sample_*/` (preserving folder structure)
-- **Summary documentation**: Comprehensive summary with statistics copied to `infra/data/sample_data_summary.md`
+- **Summary documentation**: Comprehensive summary with statistics copied to `infra/data/sample_sales_data_summary.md`
 - **Overwrite protection**: Existing files are automatically overwritten
 
 ### **100% Schema Compliance**

@@ -4,9 +4,9 @@ Sample Data Generation Orchestrator
 ===================================
 
 Generates realistic sales and finance data for three product categories:
-🏕️  Camping → Microsoft Fabric channel → sample_camping/
-🍳 Kitchen → Azure Databricks channel → sample_kitchen/  
-⛷️  Ski → Winter Sports channel → sample_ski/
+🏕️  Camping → Microsoft Fabric channel → camping/
+🍳 Kitchen → Azure Databricks channel → kitchen/  
+⛷️  Ski → Winter Sports channel → ski/
 
 Each generates: Orders, OrderLines, OrderPayments, Invoices, Payments, Accounts
 
@@ -72,9 +72,9 @@ Quick Examples (using short options):
   python main_generate_sales.py --enable-growth --graph    # Growth patterns with visualization
 
 Generates data for three channels:
-  🏕️  Camping   → sample_camping/     (Microsoft Fabric)
-  🍳 Kitchen   → sample_kitchen/      (Azure Databricks) 
-  ⛷️  Ski       → sample_ski/         (Winter Sports)
+  🏕️  Camping   → camping/     (Microsoft Fabric)
+  🍳 Kitchen   → kitchen/      (Azure Databricks) 
+  ⛷️  Ski       → ski/         (Winter Sports)
   
 Business Growth Features (--enable-growth):
   • Three-phase continuous growth pattern (Growth → Sustained → Explosive)
@@ -134,7 +134,7 @@ def generate_summary_file(start_date, end_date, camping_stats, kitchen_stats, sk
     
     base_path = Path(__file__).parent
     output_dir = base_path / "output"
-    summary_file = output_dir / "sample_data_summary.md"
+    summary_file = output_dir / "sample_sales_data_summary.md"
     
     # Calculate totals
     total_orders = 0
@@ -199,7 +199,7 @@ def generate_summary_file(start_date, end_date, camping_stats, kitchen_stats, sk
     # Generate summary content
     generation_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
-    summary_content = f"""# Sample Data Generation Summary
+    summary_content = f"""# Sales Data Generation Summary
 
 **Generated**: {generation_time}  
 **Date Range**: {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}  
@@ -240,45 +240,6 @@ def generate_summary_file(start_date, end_date, camping_stats, kitchen_stats, sk
 - **Average Order Value**: ${total_sales_value / max(total_orders, 1):.2f}
 - **Order Line Items**: {total_lines / max(total_orders, 1):.1f} items per order average
 - **Customer Coverage**: {total_accounts} accounts across all domains
-
-## 📁 Output Structure
-
-### **Sales Data (per domain)**
-- `Order_Samples_[Domain].csv` - Main order records with totals and customer info
-- `OrderLine_Samples_[Domain].csv` - Individual product line items with quantities
-- `OrderPayment_[Domain].csv` - Payment method and transaction details
-
-### **Finance Data (per domain)**
-- `Invoice_Samples_[Domain].csv` - Invoice records (generated day after order)
-- `Payment_Samples_[Domain].csv` - Payment records (immediate for eCommerce)
-- `Account_Samples_[Domain].csv` - Customer account balances (zero for eCommerce)
-
-### **Reference Data (shared)**
-- Customer master data, product catalogs, and lookup tables
-- Located in: `../../infra/data/shared/`
-
-## 🚀 Infrastructure Deployment
-
-**Automatically deployed to**: `../../infra/data/`
-
-- ✅ All {len(domains)} domain datasets with proper folder structure
-- ✅ Complete reference data in shared folder
-- ✅ This summary documentation
-- ✅ Ready for immediate use in analytics, BI, and ML workflows
-
-## 🔍 Data Quality
-
-### **Schema Compliance**
-- 100% Microsoft Fabric Delta Lake compatible
-- Proper foreign key relationships maintained
-- No deprecated fields (e.g., PaymentNumber removed)
-- All CreatedBy fields populated with "SampleGen"
-
-### **Business Realism**
-- Seasonal purchasing patterns (camping in spring, ski in winter)
-- Customer segment-based order frequencies
-- Realistic product pricing and quantities
-- Proper order status distributions
 """
     
     # Write summary file
@@ -343,13 +304,13 @@ def copy_csv_files():
             print(f"   ❌ Failed to copy {rel_path}: {e}")
     
     # Copy summary markdown file to infra/data root
-    summary_file = output_source / "sample_data_summary.md"
+    summary_file = output_source / "sample_sales_data_summary.md"
     if summary_file.exists():
-        dest_summary = output_dest / "sample_data_summary.md"
+        dest_summary = output_dest / "sample_sales_data_summary.md"
         try:
             shutil.copy2(summary_file, dest_summary)
             print(f"\n📋 Copying summary file...")
-            print(f"   ✅ sample_data_summary.md → {dest_summary.relative_to(base_path.parent.parent)}")
+            print(f"   ✅ sample_sales_data_summary.md → {dest_summary.relative_to(base_path.parent.parent)}")
             copied_files += 1
         except Exception as e:
             print(f"   ❌ Failed to copy summary file: {e}")
@@ -374,7 +335,7 @@ def generate_revenue_graph(start_date, end_date, run_camping, run_kitchen, run_s
     try:
         # Load order data from each domain
         if run_camping:
-            camping_file = output_dir / "sample_camping" / "sales" / "Order_Samples_Camping.csv"
+            camping_file = output_dir / "camping" / "sales" / "Order_Samples_Camping.csv"
             if camping_file.exists():
                 df = pd.read_csv(camping_file)
                 df['Domain'] = 'Camping'
@@ -382,7 +343,7 @@ def generate_revenue_graph(start_date, end_date, run_camping, run_kitchen, run_s
                 all_orders.append(df[['OrderDate', 'OrderTotal', 'Domain', 'Color']])
         
         if run_kitchen:
-            kitchen_file = output_dir / "sample_kitchen" / "sales" / "Order_Samples_Kitchen.csv"
+            kitchen_file = output_dir / "kitchen" / "sales" / "Order_Samples_Kitchen.csv"
             if kitchen_file.exists():
                 df = pd.read_csv(kitchen_file)
                 df['Domain'] = 'Kitchen'
@@ -390,7 +351,7 @@ def generate_revenue_graph(start_date, end_date, run_camping, run_kitchen, run_s
                 all_orders.append(df[['OrderDate', 'OrderTotal', 'Domain', 'Color']])
         
         if run_ski:
-            ski_file = output_dir / "sample_ski" / "sales" / "Order_Samples_Ski.csv"
+            ski_file = output_dir / "ski" / "sales" / "Order_Samples_Ski.csv"
             if ski_file.exists():
                 df = pd.read_csv(ski_file)
                 df['Domain'] = 'Ski'
@@ -615,14 +576,14 @@ def main():
         print()
         print("📁 Output Locations:")
         if run_camping:
-            print("   🏕️  Camping Sales: src/data_simulator/output/sample_camping/sales/")
-            print("   🏕️  Camping Finance: src/data_simulator/output/sample_camping/finance/")
+            print("   🏕️  Camping Sales: src/data_simulator/output/camping/sales/")
+            print("   🏕️  Camping Finance: src/data_simulator/output/camping/finance/")
         if run_kitchen:
-            print("   🍳 Kitchen Sales: src/data_simulator/output/sample_kitchen/sales/")
-            print("   🍳 Kitchen Finance: src/data_simulator/output/sample_kitchen/finance/")
+            print("   🍳 Kitchen Sales: src/data_simulator/output/kitchen/sales/")
+            print("   🍳 Kitchen Finance: src/data_simulator/output/kitchen/finance/")
         if run_ski:
-            print("   ⛷️  Ski Sales: src/data_simulator/output/sample_ski/sales/")
-            print("   ⛷️  Ski Finance: src/data_simulator/output/sample_ski/finance/")
+            print("   ⛷️  Ski Sales: src/data_simulator/output/ski/sales/")
+            print("   ⛷️  Ski Finance: src/data_simulator/output/ski/finance/")
         
         # Generate summary file with current run statistics
         generate_summary_file(start_date, end_date, 

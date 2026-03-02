@@ -14,8 +14,8 @@ Usage:
   python generate_kitchen_orders.py --enable-growth  # Enable growth patterns
 
 Outputs 6 CSV files:
-Sales: Order, OrderLine, OrderPayment → sample_kitchen/sales/
-Finance: Invoice, Payment, Account → sample_kitchen/finance/
+Sales: Order, OrderLine, OrderPayment → kitchen/sales/
+Finance: Invoice, Payment, Account → kitchen/finance/
 
 Author: GitHub Copilot  
 Date: January 14, 2026
@@ -34,8 +34,8 @@ import business_growth_logic
 # Configuration
 BASE_DIR = Path(__file__).parent.absolute()
 INPUT_DIR = BASE_DIR / "input"
-OUTPUT_DIR = BASE_DIR / "output" / "sample_kitchen" / "sales"
-FINANCE_OUTPUT_DIR = BASE_DIR / "output" / "sample_kitchen" / "finance"
+OUTPUT_DIR = BASE_DIR / "output" / "kitchen" / "sales"
+FINANCE_OUTPUT_DIR = BASE_DIR / "output" / "kitchen" / "finance"
 
 # Input file paths
 CUSTOMER_FILE = INPUT_DIR / "Customer_Samples.csv"
