@@ -82,16 +82,16 @@ python utils/consolidate_product_domain_input.py
 ### **Local Output (src/data_simulator/output/)**
 ```
 output/
-├── camping/          # 🏕️ Camping Products
-│   ├── sales/              # Order_Samples_Camping.csv, OrderLine_Samples_Camping.csv, OrderPayment_Camping.csv
-│   └── finance/            # Invoice_Samples_Camping.csv, Payment_Samples_Camping.csv, Account_Samples_Camping.csv
-├── kitchen/          # 🍳 Kitchen Products  
-│   ├── sales/              # Order_Samples_Kitchen.csv, OrderLine_Samples_Kitchen.csv, OrderPayment_Kitchen.csv
-│   └── finance/            # Invoice_Samples_Kitchen.csv, Payment_Samples_Kitchen.csv, Account_Samples_Kitchen.csv
-├── ski/             # ⛷️ Ski Equipment
-│   ├── sales/              # Order_Samples_Ski.csv, OrderLine_Samples_Ski.csv, OrderPayment_Ski.csv
-│   └── finance/            # Invoice_Samples_Ski.csv, Payment_Samples_Ski.csv, Account_Samples_Ski.csv
-└── sample_sales_data_summary.md   # 📊 Comprehensive data generation summary with statistics
+├── camping/                      # 🏕️ Camping Products
+│   ├── sales/                    # Order_Samples_Camping.csv, OrderLine_Samples_Camping.csv, OrderPayment_Camping.csv
+│   └── finance/                  # Invoice_Samples_Camping.csv, Payment_Samples_Camping.csv, Account_Samples_Camping.csv
+├── kitchen/                      # 🍳 Kitchen Products  
+│   ├── sales/                    # Order_Samples_Kitchen.csv, OrderLine_Samples_Kitchen.csv, OrderPayment_Kitchen.csv
+│   └── finance/                  # Invoice_Samples_Kitchen.csv, Payment_Samples_Kitchen.csv, Account_Samples_Kitchen.csv
+├── ski/                          # ⛷️ Ski Equipment
+│   ├── sales/                    # Order_Samples_Ski.csv, OrderLine_Samples_Ski.csv, OrderPayment_Ski.csv
+│   └── finance/                  # Invoice_Samples_Ski.csv, Payment_Samples_Ski.csv, Account_Samples_Ski.csv
+└── sample_sales_data_summary.md  # 📊 Comprehensive data generation summary with statistics
 ```
 
 ### **Infrastructure Data Copy (../../infra/data/)**
