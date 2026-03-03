@@ -1,0 +1,15 @@
+PurchaseOrderItemID,PurchaseOrderID,PurchaseOrderNumber,ProductID,ProductName,ProductCategory,QuantityOrdered,QuantityReceived,UnitCost,LineTotal,Status,ExpectedDate,ReceivedDate,Notes,CreatedBy,CreatedDate
+1,8,PO-2025-0008,2121,Bamboo Cutting Board Set,General,2,1.0,158.04,316.08,Backordered,2026-01-19,2026-01-19,Supplier SKU: WOR-2121,system,2025-12-22 19:39:24
+2,8,PO-2025-0008,2111,High-Speed Blender,General,114,114.0,160.7,18319.8,Received,2026-01-19,2026-01-19,Supplier SKU: WOR-2111,system,2025-12-22 19:39:24
+3,8,PO-2025-0008,1532,TrailBlaze Hiking Pants,General,236,236.0,48.12,11356.32,Received,2026-01-19,2026-01-19,Supplier SKU: WOR-1532,system,2025-12-22 19:39:24
+4,8,PO-2025-0008,1512,SkyView 2-Person Tent,General,5,5.0,242.58,1212.9,Received,2026-01-19,2026-01-19,Supplier SKU: WOR-1512,system,2025-12-22 19:39:24
+5,18,PO-2026-0018,2051,Ice Cream Bowl,General,32,,315.3,10089.6,Pending,2026-03-25,,Supplier SKU: WOR-2051,system,2026-02-26 19:39:24
+6,18,PO-2026-0018,2111,High-Speed Blender,General,43,,160.7,6910.1,Pending,2026-03-25,,Supplier SKU: WOR-2111,system,2026-02-26 19:39:24
+7,24,PO-2026-0024,2012,Espresso Machine,General,29,,199.66,5790.14,Shipped,2026-03-13,,Supplier SKU: WOR-2012,system,2026-02-10 19:39:24
+8,27,PO-2026-0027,2012,Espresso Machine,General,10,,199.66,1996.6,Pending,2026-03-05,,Supplier SKU: WOR-2012,system,2026-02-02 19:39:24
+9,27,PO-2026-0027,3103,Snowboard Bindings - Pro,General,3,,189.44,568.32,Pending,2026-03-05,,Supplier SKU: WOR-3103,system,2026-02-02 19:39:24
+10,27,PO-2026-0027,1512,SkyView 2-Person Tent,General,3,,242.58,727.74,Pending,2026-03-05,,Supplier SKU: WOR-1512,system,2026-02-02 19:39:24
+11,29,PO-2026-0029,3052,Thermal Base Layer Set - Women's,General,16,16.0,55.79,892.64,Received,2026-02-04,2026-02-06,Supplier SKU: WOR-3052,system,2026-01-07 19:39:24
+12,29,PO-2026-0029,2051,Ice Cream Bowl,General,44,44.0,315.3,13873.2,Received,2026-02-04,2026-02-06,Supplier SKU: WOR-2051,system,2026-01-07 19:39:24
+13,29,PO-2026-0029,1551,BaseCamp Folding Table,General,46,46.0,142.26,6543.96,Received,2026-02-04,2026-02-06,Supplier SKU: WOR-1551,system,2026-01-07 19:39:24
+14,29,PO-2026-0029,2071,Baking Pan,General,95,95.0,309.71,29422.45,Received,2026-02-04,2026-02-06,Supplier SKU: WOR-2071,system,2026-01-07 19:39:24

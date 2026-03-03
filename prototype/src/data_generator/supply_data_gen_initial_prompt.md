@@ -1,12 +1,12 @@
 # Supply Chain Data Gen Initial Prompt 
 
-Now we have the supply chain data models defined (we can still modify if needed later). 
+We have the supply chain data models defined (we can still modify if needed later). 
 
 Now we need to define the process to generate data. 
 
 ### Data input and output 
 
-Now I need to use the data  generated in sales data generated and saved in: 
+I need to use the data  generated in sales data generated and saved in: 
 
 - C:\Repos\Explore\udf_solutions\prototype\src\data_generator\output\camping\sales
 
@@ -37,6 +37,4 @@ For suppliers, I can give some some sample names
 4. Worldwide Importers, backup for Camping, Kitchen, and Ski
 5. Fabrikam, back up for Ski only
 
-
-
-Question for you, can you create an design doc named supplychain_data_gen_design.md? You can include or modify above info I put in. 
+Question for you, can you create an design doc named supply_chain_data_gen_design.md? You can include or modify above info I put in. 
