@@ -11,7 +11,7 @@ Generates realistic eCommerce data for three business domains:
 
 Each domain produces **6 CSV files**: Orders, OrderLines, OrderPayments (Sales) + Invoices, Payments, Accounts (Finance).
 
-**New**: Automatically copies all generated data to `../../infra/data/` for infrastructure deployment.
+**Optional**: Use `--copydata` to copy all generated data to `../../infra/data/` for infrastructure deployment.
 
 ## 🚀 Quick Start
 
@@ -19,10 +19,13 @@ Each domain produces **6 CSV files**: Orders, OrderLines, OrderPayments (Sales) 
 # Install dependencies
 pip install -r requirements.txt
 
+# Practical example
+python main_generate_sales.py -s 2025-01-01 -e 2026-03-02 --enable-growth --copydata --graph
+
 # Default: Generate 6 years of data up to execution date (recommended)
 python main_generate_sales.py
 
-# 
+# Generate a growth story
 python main_generate_sales.py  --enable-growth 
 
 # Generate data for specific date range
@@ -37,8 +40,9 @@ python main_generate_sales.py -s 2024-06-01 -e 2024-12-31 --camping-only
 # Generate data with business growth simulation
 python main_generate_sales.py --enable-growth
 
-# Generate growth data for specific period
-python main_generate_sales.py -s 2025-01-01 -e 2025-12-31 --enable-growth
+# Generate data with infrastructure copy
+python main_generate_sales.py --copydata
+
 
 # Generate revenue trend graph
 python main_generate_sales.py --graph
@@ -48,7 +52,7 @@ python main_generate_sales.py --enable-growth --graph
 ```
 
 **Default**: When no dates are specified, automatically generates 6 years of data (from 6 years ago to today's execution date).  
-**Note**: All generated data is automatically copied to `../../infra/data/` after successful generation.
+**Note**: Use `--copydata` flag to copy generated data to `../../infra/data/` for infrastructure deployment.
 
 ## 📋 Command Options
 
@@ -56,7 +60,11 @@ python main_generate_sales.py --enable-growth --graph
 | Option | Description | Example |
 |--------|------------|---------|
 | `-s`, `--start-date` | Start date (YYYY-MM-DD) | `-s 2025-01-01` |
-| `-e`, `--end-date` | End date (YYYY-MM-DD) | `-e 2025-12-31` || `--enable-growth` | Enable business growth patterns | || `--camping-only` | Generate only camping orders | |
+| `-e`, `--end-date` | End date (YYYY-MM-DD) | `-e 2025-12-31` |
+| `--enable-growth` | Enable business growth patterns | |
+| `--graph` | Generate revenue trend graph | |
+| `--copydata` | Copy files to infra/data directory with organized structure | |
+| `--camping-only` | Generate only camping orders | |
 | `--kitchen-only` | Generate only kitchen orders | |
 | `--ski-only` | Generate only ski orders | |
 
@@ -94,10 +102,12 @@ output/
 └── sample_sales_data_summary.md  # 📊 Comprehensive data generation summary with statistics
 ```
 
-### **Infrastructure Data Copy (../../infra/data/)**
-**Automatically copied after generation:**
-- **Input data** → `infra/data/shared/` (all customer, product, and reference data)
-- **Output data** → `infra/data/sample_*/` (preserving folder structure)
+### **Infrastructure Data Copy (../../infra/data/) - Optional**
+**Use --copydata flag to organize files for infrastructure:**
+- **Product data** → `infra/data/product/` (all product and category files)
+- **Customer data** → `infra/data/customer/` (all customer and location files)  
+- **Sales/Finance data** → `infra/data/camping|kitchen|ski/` (preserving folder structure)
+- **Reference data** → `infra/data/shared/` (all input files for backward compatibility)
 - **Summary report** → `infra/data/sample_sales_data_summary.md` (comprehensive generation statistics)
 
 ### **Input Files**
@@ -288,12 +298,31 @@ python utils/consolidate_product_domain_input.py
 - **High-resolution export**: PNG graphs saved to output folder
 - **Requirements**: matplotlib, pandas, and numpy
 
-### **Automated Infrastructure Deployment**
-- **Automatic file copying**: All CSV files copied to `../../infra/data/` after generation
-- **Input data**: Copied to `infra/data/shared/` (customers, products, reference data)
-- **Output data**: Copied to `infra/data/sample_*/` (preserving folder structure)
-- **Summary documentation**: Comprehensive summary with statistics copied to `infra/data/sample_sales_data_summary.md`
+### **Automated Infrastructure Deployment (--copydata)**
+- **Product files**: Copied to `infra/data/product/` (9 product & category files)
+- **Customer files**: Copied to `infra/data/customer/` (5 customer & location files)
+- **Sales/Finance data**: Organized in `infra/data/camping|kitchen|ski/sales|finance/`
+- **Reference data**: Backward compatible copying to `infra/data/shared/` (all input files)
+- **Summary documentation**: Comprehensive report in `infra/data/sample_sales_data_summary.md`
 - **Overwrite protection**: Existing files are automatically overwritten
+
+**Complete Infrastructure Structure:**
+```
+infra/data/
+├── product/          # Product_Samples_*.csv, ProductCategory_Samples_*.csv (9 files)
+├── customer/         # Customer*.csv, Location_Samples.csv (5 files)
+├── camping/
+│   ├── sales/        # Order, OrderLine, OrderPayment CSV files
+│   └── finance/      # Invoice, Payment, Account CSV files
+├── kitchen/
+│   ├── sales/        # Order, OrderLine, OrderPayment CSV files  
+│   └── finance/      # Invoice, Payment, Account CSV files
+├── ski/
+│   ├── sales/        # Order, OrderLine, OrderPayment CSV files
+│   └── finance/      # Invoice, Payment, Account CSV files
+├── shared/           # All input files (backward compatibility)
+└── sample_sales_data_summary.md  # Generation statistics & analytics
+```
 
 ### **100% Schema Compliance**
 - All CSV files match Microsoft Fabric Delta Lake schemas exactly
@@ -345,7 +374,7 @@ python utils/consolidate_product_domain_input.py
 1. **Start with consolidated files**: Use `utils/` to generate and consolidate input files first
 2. **Test incrementally**: Start with short date ranges before large datasets
 3. **Use domain filters**: Generate single domains for focused testing
-4. **Infrastructure ready**: Generated data is automatically copied to `infra/data/` for deployment
+4. **Infrastructure ready**: Use `--copydata` to organize generated data in `infra/data/` for deployment
 5. **Verify schema compliance**: All outputs are Microsoft Fabric ready
 6. **Plan for scale**: Large date ranges generate substantial data volumes
 

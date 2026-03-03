@@ -13,6 +13,8 @@ Similar to main_generate_sales.py, this orchestrates the full process.
 
 import argparse
 import sys
+import shutil
+import os
 from datetime import datetime, date
 from pathlib import Path
 import pandas as pd
@@ -603,6 +605,63 @@ def generate_graph(results, args):
         print("   Make sure matplotlib and pandas are installed: pip install matplotlib pandas")
 
 
+def copy_data_to_infra():
+    """Copy generated supply chain data files to infra/data directory with proper folder structure."""
+    
+    print("\n📁 Copying data files to infra directory...")
+    
+    # Define source and destination paths
+    current_dir = Path(__file__).parent
+    output_dir = current_dir / "output"
+    infra_dir = current_dir.parent.parent / "infra" / "data"
+    
+    try:
+        # Create destination directory if it doesn't exist
+        infra_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Copy suppliers files to suppliers subfolder
+        suppliers_src = output_dir / "suppliers"
+        suppliers_dest = infra_dir / "suppliers"
+        if suppliers_src.exists():
+            suppliers_dest.mkdir(exist_ok=True)
+            for file_path in suppliers_src.glob("*.csv"):
+                dest_file = suppliers_dest / file_path.name
+                shutil.copy2(file_path, dest_file)
+                print(f"✅ Copied: {file_path.name} → suppliers/")
+        
+        # Copy suppliers.json from input to suppliers subfolder
+        input_dir = current_dir / "input"
+        suppliers_json_src = input_dir / "suppliers.json"
+        if suppliers_json_src.exists():
+            suppliers_dest.mkdir(exist_ok=True)
+            suppliers_json_dest = suppliers_dest / "suppliers.json"
+            shutil.copy2(suppliers_json_src, suppliers_json_dest)
+            print(f"✅ Copied: suppliers.json → suppliers/")
+        
+        # Copy inventory files to inventory subfolder
+        inventory_src = output_dir / "inventory" 
+        inventory_dest = infra_dir / "inventory"
+        if inventory_src.exists():
+            inventory_dest.mkdir(exist_ok=True)
+            for file_path in inventory_src.glob("*.csv"):
+                dest_file = inventory_dest / file_path.name
+                shutil.copy2(file_path, dest_file)
+                print(f"✅ Copied: {file_path.name} → inventory/")
+        
+        # Copy summary file to infra/data root
+        summary_src = output_dir / "sample_supplychain_data_summary.md"
+        if summary_src.exists():
+            summary_dest = infra_dir / "sample_supplychain_data_summary.md"
+            shutil.copy2(summary_src, summary_dest)
+            print(f"✅ Copied: sample_supplychain_data_summary.md → data/")
+        
+        print(f"📁 All files organized in: {infra_dir}")
+        
+    except Exception as e:
+        print(f"❌ Error copying files: {e}")
+        print("   Make sure the destination directory is accessible")
+
+
 def main():
     """Main function to orchestrate supply chain data generation."""
     
@@ -667,6 +726,12 @@ Examples:
         help='Generate supply chain analytics graph (requires matplotlib: pip install matplotlib)'
     )
     
+    parser.add_argument(
+        '--copydata',
+        action='store_true',
+        help='Copy generated data files to infra/data directory'
+    )
+    
     args = parser.parse_args()
     
     # Print banner
@@ -715,6 +780,10 @@ Examples:
         # Generate analytics graph if requested
         if args.graph:
             generate_graph(results, args)
+        
+        # Copy data files if requested
+        if args.copydata:
+            copy_data_to_infra()
         
         # Print final summary
         print_summary(results)

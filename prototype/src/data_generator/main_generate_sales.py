@@ -126,6 +126,12 @@ Business Growth Features (--enable-growth):
         help='Generate revenue trend graph (requires matplotlib: pip install matplotlib)'
     )
     
+    parser.add_argument(
+        '--copydata',
+        action='store_true',
+        help='Copy generated files to infra/data directory'
+    )
+    
     return parser.parse_args()
 
 def generate_summary_file(start_date, end_date, camping_stats, kitchen_stats, ski_stats, run_camping, run_kitchen, run_ski):
@@ -314,6 +320,58 @@ def copy_csv_files():
             copied_files += 1
         except Exception as e:
             print(f"   ❌ Failed to copy summary file: {e}")
+    
+    # Copy product files to infra/data/product/
+    product_dest = output_dest / "product"
+    product_dest.mkdir(parents=True, exist_ok=True)
+    
+    product_files = [
+        "ProductCategory_Samples.csv",
+        "ProductCategory_Samples_Camping.csv", 
+        "ProductCategory_Samples_Combined.csv",
+        "ProductCategory_Samples_Kitchen.csv",
+        "ProductCategory_Samples_Ski.csv",
+        "Product_Samples_Camping.csv",
+        "Product_Samples_Combined.csv",
+        "Product_Samples_Kitchen.csv",
+        "Product_Samples_Ski.csv"
+    ]
+    
+    print(f"\n📦 Copying product files to {product_dest.resolve()}...")
+    for file_name in product_files:
+        src_file = input_source / file_name
+        if src_file.exists():
+            dest_file = product_dest / file_name
+            try:
+                shutil.copy2(src_file, dest_file)
+                print(f"   ✅ {file_name} → product/")
+                copied_files += 1
+            except Exception as e:
+                print(f"   ❌ Failed to copy {file_name}: {e}")
+    
+    # Copy customer files to infra/data/customer/
+    customer_dest = output_dest / "customer"
+    customer_dest.mkdir(parents=True, exist_ok=True)
+    
+    customer_files = [
+        "CustomerAccount_Samples.csv",
+        "CustomerRelationshipType_Samples.csv",
+        "CustomerTradeName_Samples.csv", 
+        "Customer_Samples.csv",
+        "Location_Samples.csv"
+    ]
+    
+    print(f"\n👥 Copying customer files to {customer_dest.resolve()}...")
+    for file_name in customer_files:
+        src_file = input_source / file_name
+        if src_file.exists():
+            dest_file = customer_dest / file_name
+            try:
+                shutil.copy2(src_file, dest_file)
+                print(f"   ✅ {file_name} → customer/")
+                copied_files += 1
+            except Exception as e:
+                print(f"   ❌ Failed to copy {file_name}: {e}")
     
     print(f"\n📊 File Copy Summary: {copied_files} files copied successfully")
     print("=" * 60)
@@ -597,8 +655,9 @@ def main():
             print("\n" + "="*60)
             generate_revenue_graph(start_date, end_date, run_camping, run_kitchen, run_ski)
         
-        # Copy CSV files to infrastructure data folders
-        copy_csv_files()
+        # Copy CSV files to infrastructure data folders (if requested)
+        if args.copydata:
+            copy_csv_files()
         
     except Exception as e:
         print(f"❌ Error during generation: {str(e)}")
