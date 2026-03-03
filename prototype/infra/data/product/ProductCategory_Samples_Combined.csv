@@ -1,0 +1,31 @@
+CategoryID,ParentCategoryId,CategoryName,CategoryDescription,BrandName,BrandLogoUrl,IsActive
+151,Parent_1,Tents,Tents for outdoor camping and adventure activities.,Contoso Camping,https://contoso.com/camping-logo.png,True
+152,Parent_1,Backpacks,Backpacks for outdoor camping and adventure activities.,Contoso Camping,https://contoso.com/camping-logo.png,True
+153,Parent_1,Hiking Clothing,Hiking Clothing for outdoor camping and adventure activities.,Contoso Camping,https://contoso.com/camping-logo.png,True
+154,Parent_1,Hiking Footwear,Hiking Footwear for outdoor camping and adventure activities.,Contoso Camping,https://contoso.com/camping-logo.png,True
+155,Parent_1,Camping Tables,Camping Tables for outdoor camping and adventure activities.,Contoso Camping,https://contoso.com/camping-logo.png,True
+156,Parent_1,Camping Stoves,Camping Stoves for outdoor camping and adventure activities.,Contoso Camping,https://contoso.com/camping-logo.png,True
+157,Parent_1,Sleeping Bags,Sleeping Bags for outdoor camping and adventure activities.,Contoso Camping,https://contoso.com/camping-logo.png,True
+158,Parent_1,Lighting,Lighting for outdoor camping and adventure activities.,Contoso Camping,https://contoso.com/camping-logo.png,True
+201,Parent_2,Coffee Makers,Coffee Makers for home and business kitchens.,Contoso Kitchen,https://contoso.com/kitchen-logo.png,True
+202,Parent_2,Cutlery,Cutlery for home and business kitchens.,Contoso Kitchen,https://contoso.com/kitchen-logo.png,True
+203,Parent_2,Cups & Mugs,Cups & Mugs for home and business kitchens.,Contoso Kitchen,https://contoso.com/kitchen-logo.png,True
+204,Parent_2,Serving Dishes,Serving Dishes for home and business kitchens.,Contoso Kitchen,https://contoso.com/kitchen-logo.png,True
+205,Parent_2,Ice Cream Dishes,Ice Cream Dishes for home and business kitchens.,Contoso Kitchen,https://contoso.com/kitchen-logo.png,True
+206,Parent_2,Mixing Bowls,Mixing Bowls for home and business kitchens.,Contoso Kitchen,https://contoso.com/kitchen-logo.png,True
+207,Parent_2,Bakeware,Bakeware for home and business kitchens.,Contoso Kitchen,https://contoso.com/kitchen-logo.png,True
+208,Parent_2,Storage Containers,Storage Containers for home and business kitchens.,Contoso Kitchen,https://contoso.com/kitchen-logo.png,True
+209,Parent_2,Cooking Utensils,Cooking Utensils for home and business kitchens.,Contoso Kitchen,https://contoso.com/kitchen-logo.png,True
+210,Parent_2,Measuring Tools,Measuring Tools for home and business kitchens.,Contoso Kitchen,https://contoso.com/kitchen-logo.png,True
+211,Parent_2,Small Appliances,Small Appliances for home and business kitchens.,Contoso Kitchen,https://contoso.com/kitchen-logo.png,True
+212,Parent_2,Cutting Boards,Cutting Boards for home and business kitchens.,Contoso Kitchen,https://contoso.com/kitchen-logo.png,True
+301,Parent_3,Alpine Skis,Alpine Skis for winter sports and cold weather activities.,Contoso Ski Sportswear,https://contoso.com/ski-logo.png,True
+302,Parent_3,Cross-Country Skis,Cross-Country Skis for winter sports and cold weather activities.,Contoso Ski Sportswear,https://contoso.com/ski-logo.png,True
+303,Parent_3,Ski Boots,Ski Boots for winter sports and cold weather activities.,Contoso Ski Sportswear,https://contoso.com/ski-logo.png,True
+304,Parent_3,Ski Poles,Ski Poles for winter sports and cold weather activities.,Contoso Ski Sportswear,https://contoso.com/ski-logo.png,True
+305,Parent_3,Ski Apparel,Ski Apparel for winter sports and cold weather activities.,Contoso Ski Sportswear,https://contoso.com/ski-logo.png,True
+306,Parent_3,Safety Equipment,Safety Equipment for winter sports and cold weather activities.,Contoso Ski Sportswear,https://contoso.com/ski-logo.png,True
+307,Parent_3,Ski Accessories,Ski Accessories for winter sports and cold weather activities.,Contoso Ski Sportswear,https://contoso.com/ski-logo.png,True
+308,Parent_3,Ski Maintenance,Ski Maintenance for winter sports and cold weather activities.,Contoso Ski Sportswear,https://contoso.com/ski-logo.png,True
+309,Parent_3,Snowboards & Equipment,Snowboards & Equipment for winter sports and cold weather activities.,Contoso Ski Sportswear,https://contoso.com/ski-logo.png,True
+310,Parent_3,Winter Footwear,Winter Footwear for winter sports and cold weather activities.,Contoso Ski Sportswear,https://contoso.com/ski-logo.png,True
