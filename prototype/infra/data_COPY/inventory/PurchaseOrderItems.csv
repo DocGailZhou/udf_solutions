@@ -1,8 +1,0 @@
-PurchaseOrderItemID,PurchaseOrderID,PurchaseOrderNumber,ProductID,ProductName,ProductCategory,QuantityOrdered,QuantityReceived,UnitCost,LineTotal,Status,ExpectedDate,ReceivedDate,Notes,CreatedBy,CreatedDate
-1,9,PO-2025-0009,1562,PowerBurner Camping Stove,General,35,35.0,157.91,5526.85,Received,2026-01-10,2026-01-13,Supplier SKU: WOR-1562,system,2025-12-09 21:27:15
-2,9,PO-2025-0009,3042,Aluminum All-Mountain Poles - 115cm,General,236,236.0,61.72,14565.92,Received,2026-01-10,2026-01-13,Supplier SKU: WOR-3042,system,2025-12-09 21:27:15
-3,9,PO-2025-0009,2022,Fork Set,General,92,84.0,82.43,7583.56,Backordered,2026-01-10,2026-01-13,Supplier SKU: WOR-2022,system,2025-12-09 21:27:15
-4,9,PO-2025-0009,3081,All-Temp Ski Wax Kit,General,179,179.0,170.03,30435.37,Received,2026-01-10,2026-01-13,Supplier SKU: WOR-3081,system,2025-12-09 21:27:15
-5,9,PO-2025-0009,2041,Serving Platter,General,1,1.0,70.01,70.01,Received,2026-01-10,2026-01-13,Supplier SKU: WOR-2041,system,2025-12-09 21:27:15
-6,12,PO-2026-0012,2101,Measuring Cup Set,General,18,,180.04,3240.72,Pending,2026-03-21,,Supplier SKU: WOR-2101,system,2026-02-21 21:27:15
-7,12,PO-2026-0012,3042,Aluminum All-Mountain Poles - 115cm,General,94,,61.72,5801.68,Pending,2026-03-21,,Supplier SKU: WOR-3042,system,2026-02-21 21:27:15
