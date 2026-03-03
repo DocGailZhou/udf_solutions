@@ -1,6 +1,6 @@
 # Supply Chain Data Generation Summary
 
-**Generated**: 2026-03-02 19:39:25  
+**Generated**: 2026-03-02 20:25:58  
 **Date Range**: 2025-01-01 to 2026-03-02  
 **Duration**: 425 days  
 **Integration**: Connected to 56,457 sales line items
@@ -8,14 +8,14 @@
 ## 🏭 Generation Overview
 
 ### **Total Summary**
-- **Total Records Generated**: 6,495
-- **Suppliers**: 0 suppliers with backup relationships
-- **Product-Supplier Mappings**: 0 relationships
-- **Inventory Records**: 76 stock locations
+- **Total Records Generated**: 6,533
+- **Suppliers**: 5 suppliers with backup relationships
+- **Product-Supplier Mappings**: 11 relationships
+- **Inventory Records**: 74 stock locations
 - **Purchase Orders**: 30 procurement orders  
-- **PO Line Items**: 14 order details
+- **PO Line Items**: 23 order details
 - **Inventory Transactions**: 6375 movement records
-- **Supply Chain Events**: 0 disruption scenarios
+- **Supply Chain Events**: 15 disruption scenarios
 
 ### **Supplier Network**
 
@@ -64,7 +64,7 @@
 - **Impact Assessment**: Supplier downtime, delays, cost increases, availability
 
 ### **Recovery Planning**
-- **Multi-Tier Suppliers**: Not generated supplier relationships
+- **Multi-Tier Suppliers**: 3 Primary, 2 Backup supplier relationships
 - **Lead Time Buffers**: Variable delivery windows with reliability scoring
 - **Emergency Orders**: Priority processing for critical stock situations
 - **Mitigation Actions**: Alternative sourcing, expedited shipping, transfers
@@ -92,15 +92,15 @@
 ## 📋 Generated Files
 
 ### **Supplier Data** (`output/suppliers/`)
-- `Suppliers.csv` - 0 supplier records with backup relationships
-- `ProductSuppliers.csv` - 0 product-to-supplier mappings with pricing
-- `SupplyChainEvents.csv` - 0 disruption events and scenarios
+- `Suppliers.csv` - 5 supplier records with backup relationships
+- `ProductSuppliers.csv` - 11 product-to-supplier mappings with pricing
+- `SupplyChainEvents.csv` - 15 disruption events and scenarios
 
 ### **Inventory Data** (`output/inventory/`)  
-- `Inventory.csv` - 76 current stock levels across warehouses
+- `Inventory.csv` - 74 current stock levels across warehouses
 - `InventoryTransactions.csv` - 6375 complete movement audit trail
 - `PurchaseOrders.csv` - 30 procurement orders with supplier details  
-- `PurchaseOrderItems.csv` - 14 line items with specifications
+- `PurchaseOrderItems.csv` - 23 line items with specifications
 
 ## 🚀 Next Steps
 

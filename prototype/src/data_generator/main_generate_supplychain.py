@@ -356,6 +356,13 @@ def generate_graph(results, args):
         if inventory_levels_file.exists():
             df_inventory = pd.read_csv(inventory_levels_file)
             
+            # Map warehouse locations to real city names for display
+            warehouse_display_names = {
+                'Main': 'Kansas City, MO',
+                'Backup': 'Memphis, TN', 
+                'Regional': 'Atlanta, GA'
+            }
+            
             # Calculate capacity utilization by warehouse
             warehouse_stats = df_inventory.groupby('WarehouseLocation').agg({
                 'CurrentStock': 'sum',
@@ -367,13 +374,14 @@ def generate_graph(results, args):
             # Calculate utilization percentage
             warehouse_stats['Utilization'] = (warehouse_stats['CurrentStock'] / warehouse_stats['MaxStockLevel'] * 100).round(1)
             
-            locations = warehouse_stats.index.tolist()
+            # Convert warehouse names to display names for chart
+            display_locations = [warehouse_display_names.get(loc, loc) for loc in warehouse_stats.index.tolist()]
             utilizations = warehouse_stats['Utilization'].tolist()
             
             # Color code by utilization level (Red: >90%, Yellow: 70-90%, Green: <70%)
             colors = ['#DC143C' if u > 90 else '#FFD700' if u > 70 else '#32CD32' for u in utilizations]
             
-            bars = ax2.barh(locations, utilizations, color=colors, alpha=0.8, height=0.6)
+            bars = ax2.barh(display_locations, utilizations, color=colors, alpha=0.8, height=0.6)
             
             # Add percentage labels on bars
             for i, (bar, util) in enumerate(zip(bars, utilizations)):
@@ -606,7 +614,6 @@ def main():
 Examples:
   python main_generate_supplychain.py
   python main_generate_supplychain.py --start-date 2025-01-01 --end-date 2026-03-02
-  python main_generate_supplychain.py --suppliers-only
   python main_generate_supplychain.py --inventory-only --num-orders 50
   python main_generate_supplychain.py --graph
   python main_generate_supplychain.py --graph --num-orders 25 --num-transactions 800
@@ -625,12 +632,6 @@ Examples:
         type=str,
         default=date.today().strftime('%Y-%m-%d'),
         help='End date for analysis (YYYY-MM-DD, default: today)'
-    )
-    
-    parser.add_argument(
-        '--suppliers-only',
-        action='store_true',
-        help='Generate only supplier data (skip inventory)'
     )
     
     parser.add_argument(
@@ -689,23 +690,22 @@ Examples:
             
             print("✅ Phase 1 completed successfully!")
         
-        # Phase 2: Inventory Data Generation  
-        if not args.suppliers_only:
-            print("\n📦 Phase 2: Generating Inventory Intelligence...")
-            print("-" * 50)
-            
-            inventory_generator = InventoryDataGenerator(
-                start_date=args.start_date,
-                end_date=args.end_date
-            )
-            
-            inventory_results = inventory_generator.generate_all_inventory_data(
-                num_orders=args.num_orders,
-                num_transactions=args.num_transactions
-            )
-            results['inventory'] = inventory_results
-            
-            print("✅ Phase 2 completed successfully!")
+        # Phase 2: Inventory Data Generation
+        print("\n📦 Phase 2: Generating Inventory Intelligence...")
+        print("-" * 50)
+        
+        inventory_generator = InventoryDataGenerator(
+            start_date=args.start_date,
+            end_date=args.end_date
+        )
+        
+        inventory_results = inventory_generator.generate_all_inventory_data(
+            num_orders=args.num_orders,
+            num_transactions=args.num_transactions
+        )
+        results['inventory'] = inventory_results
+        
+        print("✅ Phase 2 completed successfully!")
         
         end_time = datetime.now()
         
