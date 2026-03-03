@@ -1,8 +1,0 @@
-ProductSupplierID,ProductID,ProductName,ProductCategory,SupplierID,SupplierName,SupplierProductCode,WholesaleCost,MinOrderQuantity,MaxOrderQuantity,LeadTimeDays,Status,CreatedBy,CreatedDate
-1,1562,PowerBurner Camping Stove,General,4,Worldwide Importers,WOR-1562,157.91,10,5000,29,Active,system,2025-09-14 21:27:15
-2,2022,Fork Set,General,4,Worldwide Importers,WOR-2022,82.43,25,5000,30,Active,system,2025-11-18 21:27:15
-3,2041,Serving Platter,General,4,Worldwide Importers,WOR-2041,70.01,1,5000,24,Active,system,2025-10-04 21:27:15
-4,2101,Measuring Cup Set,General,4,Worldwide Importers,WOR-2101,180.04,10,2000,27,Active,system,2025-09-25 21:27:15
-5,3042,Aluminum All-Mountain Poles - 115cm,General,4,Worldwide Importers,WOR-3042,61.72,50,500,24,Active,system,2025-10-05 21:27:15
-6,3081,All-Temp Ski Wax Kit,General,4,Worldwide Importers,WOR-3081,170.03,50,500,24,Active,system,2025-09-27 21:27:15
-7,3091,Freestyle Snowboard - 155cm,General,4,Worldwide Importers,WOR-3091,318.81,1,5000,30,Active,system,2026-01-28 21:27:15
