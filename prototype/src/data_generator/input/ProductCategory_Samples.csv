@@ -1,0 +1,31 @@
+CategoryID,ParentCategoryId,CategoryName,CategoryDescription,BrandName,BrandLogoUrl,IsActive
+151,Parent_1,Tents,Weather-resistant tents for camping and outdoor adventures,Contoso Camping,url coming in future,TRUE
+152,Parent_1,Backpacks,Outdoor backpacks for hiking and camping gear transportation,Contoso Camping,url coming in future,TRUE
+153,Parent_1,Hiking Clothing,Technical outdoor clothing for hiking and camping activities,Contoso Camping,url coming in future,TRUE
+154,Parent_1,Hiking Footwear,Durable footwear designed for trail hiking and outdoor exploration,Contoso Camping,url coming in future,TRUE
+155,Parent_1,Camping Tables,Portable furniture for outdoor dining and camp organization,Contoso Camping,url coming in future,TRUE
+156,Parent_1,Camping Stoves,Portable cooking equipment for outdoor meal preparation,Contoso Camping,url coming in future,TRUE
+157,Parent_1,Sleeping Bags,Insulated sleeping systems for comfortable outdoor rest,Contoso Camping,url coming in future,TRUE
+158,Parent_1,Lighting,Portable lighting solutions for camping and outdoor activities,Contoso Camping,url coming in future,TRUE
+201,Parent_2,Coffee Makers,Coffee brewing equipment for home and commercial kitchens,Contoso Kitchen,url coming in future,TRUE
+202,Parent_2,Cutlery,Professional and home-use knives and cutting implements,Contoso Kitchen,url coming in future,TRUE
+203,Parent_2,Cups & Mugs,Drinkware for hot and cold beverages in various materials and sizes,Contoso Kitchen,url coming in future,TRUE
+204,Parent_2,Serving Dishes,Elegant serving pieces for entertaining and family dining,Contoso Kitchen,url coming in future,TRUE
+205,Parent_2,Ice Cream Dishes,Specialized bowls and dishes for frozen dessert service,Contoso Kitchen,url coming in future,TRUE
+206,Parent_2,Mixing Bowls,Essential mixing bowls for food preparation and cooking,Contoso Kitchen,url coming in future,TRUE
+207,Parent_2,Bakeware,Baking pans and tools for home and professional pastry making,Contoso Kitchen,url coming in future,TRUE
+208,Parent_2,Storage Containers,Food storage solutions for freshness and organization,Contoso Kitchen,url coming in future,TRUE
+209,Parent_2,Cooking Utensils,Essential cooking tools and implements for food preparation,Contoso Kitchen,url coming in future,TRUE
+210,Parent_2,Measuring Tools,Precise measuring equipment for accurate cooking and baking,Contoso Kitchen,url coming in future,TRUE
+211,Parent_2,Small Appliances,Countertop appliances for efficient kitchen operations,Contoso Kitchen,url coming in future,TRUE
+212,Parent_2,Cutting Boards,Durable cutting surfaces for safe and hygienic food preparation,Contoso Kitchen,url coming in future,TRUE
+301,Parent_3,Alpine Skis,Premium alpine skis for recreational and competitive skiing on groomed slopes,Contoso Ski Sportswear,url coming in future,TRUE
+302,Parent_3,Cross-Country Skis,Cross-country skis designed for track skiing and backcountry touring,Contoso Ski Sportswear,url coming in future,TRUE
+303,Parent_3,Ski Boots,High-performance ski boots with precision fit and comfort for all skill levels,Contoso Ski Sportswear,url coming in future,TRUE
+304,Parent_3,Ski Poles,Lightweight and durable ski poles for alpine and cross-country skiing,Contoso Ski Sportswear,url coming in future,TRUE
+305,Parent_3,Ski Apparel,Technical ski clothing designed for weather protection and performance,Contoso Ski Sportswear,url coming in future,TRUE
+306,Parent_3,Safety Equipment,Essential safety gear including helmets and goggles for mountain sports,Contoso Ski Sportswear,url coming in future,TRUE
+307,Parent_3,Ski Accessories,Convenient accessories for ski storage and comfort enhancement,Contoso Ski Sportswear,url coming in future,TRUE
+308,Parent_3,Ski Maintenance,Tools and supplies for maintaining optimal ski and snowboard performance,Contoso Ski Sportswear,url coming in future,TRUE
+309,Parent_3,Snowboards & Equipment,Snowboards and related equipment for freestyle and all-mountain riding,Contoso Ski Sportswear,url coming in future,TRUE
+310,Parent_3,Winter Footwear,Insulated and waterproof footwear for winter outdoor activities,Contoso Ski Sportswear,url coming in future,TRUE
